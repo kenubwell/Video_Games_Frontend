@@ -14,11 +14,16 @@ function App() {
     setAllGames(response.data);
   }
 
+  async function getGameById(game){
+    let response = await axios.get(`https://localhost:7260/api/games/${game.id}`)
+    
+  }
+
 
 
   return (
     <div>
-      <DisplayGames/>
+      <DisplayGames DisplayGames = {games}/>
     </div>
   );
 }

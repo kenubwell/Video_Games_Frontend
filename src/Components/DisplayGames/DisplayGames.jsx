@@ -1,7 +1,7 @@
 import React from "react";
 import './DisplayGames.css';
 
-const DisplayGames = () => {
+const DisplayGames = (props) => {
     return (  
         <div>
 
