@@ -1,6 +1,5 @@
-import React from "react";
-import './ConsoleChart.css';
 import React, { useState, useEffect } from 'react';
+import './ConsoleChart.css';
 import { Chart } from "react-google-charts";
 
 
@@ -28,4 +27,4 @@ const ConsoleChart = (props) => {
      );
 }
  
-export default EntriesChartTracker;
+export default ConsoleChart;

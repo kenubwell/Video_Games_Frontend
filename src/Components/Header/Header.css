@@ -1,0 +1,35 @@
+.nav-background {
+  background-color: yellow;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logo {
+  margin-right: auto;
+  padding-left: 2rem;
+}
+
+.logo-decoration {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-ref {
+  font-weight: bold;
+  font-size: 18px;
+  color: navy;
+  text-decoration: none;
+}
+
+.navbar-image {
+  height: 35px;
+}
+
+.navbar-list {
+  list-style: none;
+  display: inline-block;
+  padding: 0px 22px;
+}

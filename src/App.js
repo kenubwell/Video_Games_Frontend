@@ -4,6 +4,7 @@ import './App.css';
 import DisplayGames from './Components/DisplayGames/DisplayGames';
 import ConsoleChart from './Components/ConsoleChart/ConsoleChart';
 import SearchBar from './Components/SearchBar/SearchBar';
+import Header from './Components/Header/Header';
 
 function App() {
 
@@ -34,13 +35,14 @@ function App() {
       }
       else return false
   })
-  setSongs(matchingGames)
+  setGame(matchingGames)
 }
 
 
 
   return (
     <div>
+      <Header/>
       <DisplayGames displayGames = {allGames}/>
       <SearchBar filterGames={filterGames} getAllGames={getAllGames}/>
       <ConsoleChart singleGame = {game}/>
