@@ -6,27 +6,52 @@ import { Chart } from "react-google-charts";
 
 const ConsoleChart = (props) => {
 
-    const [chartData, setChartData] = useState([]);
+    const [chartData, setChartData] =useState([]);
+    const [consoleData, setConsoleData] = useState([]);
 
-   useEffect(() => {
-       let tempchartData = props.displayGames.map(entry => {
-           return [entry.platform, entry.globalSales];
-       });
-       setChartData(tempchartData);
-   }, [props.displayGames])
+    useEffect(() =>{
+        let tempChartData = props.displayGames;
+        identifyConsoleInfo(tempChartData);
+}, [props.displayGames])
 
-    return ( 
-        <div className='console-chart-contain'>
-            <Chart
-            chartType="LineChart"
-            data={[["Sales", "Console"], ...chartData]}
-            width="100%"
-            height="325px"
-            options={{legend: {position: 'bottom'}}}
-            legendToggle
-            />
-        </div>
-     );
+    function identifyConsoleInfo(tempChartData){
+        console.log(tempChartData);
+        const duplicateConsole = tempChartData.map(game => game.console);
+        console.log(duplicateConsole);
+
+        const distinctConsole = [...new Set(duplicateConsole)];
+
+        let consolesWithGlobalSales = distinctConsole.map(consoleName => {
+            let consoleDataObject ={
+                console : consoleName,
+
+                gamesSoldGlobally: tempChartData.filter(game => game.console === consoleName).map(game => game.globalSales).reduce((a, b) => a + b, 0)
+            }
+            return consoleDataObject;
+        })
+
+        setConsoleData(consolesWithGlobalSales);
+    }
+
+    function formatConsoleData(consoleData){
+        const data = [
+            ["Console", "Global Sales", {role: "style"}],
+            ...consoleData.map(consoleDataSingle => [consoleDataSingle.console, consoleDataSingle.gamesSoldGlobally, 'lightblue'])
+        ]
+    return data
+    }
+
+
+return (  
+    <div>
+        {consoleData.length > 0 &&
+        <>
+            <h1>Console By Global Sales in Millions</h1>
+            <Chart chartType="ColumnChart" width="100%" height="400px" data={formatConsoleData(consoleData)} />
+        </>
+        }
+    </div>
+);
 }
  
 export default ConsoleChart;
