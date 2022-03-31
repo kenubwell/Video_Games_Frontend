@@ -8,16 +8,16 @@ const SampleEvaluationChart = (props) => {
 
     useEffect(() =>{
         let tempChartData = props.allGames.filter(function(element){
-            return element.year == 2016;
-        }).map(entry => {
-        return [entry.publisher, entry.globalSales];
-    });
+            return element.year === 2016;
+        })
     identifyPublisherInfo(tempChartData);
+    console.log(tempChartData);
 }, [props.allGames])
+   
 
 
     function identifyPublisherInfo(tempChartData){
-
+        console.log(tempChartData);
         const duplicatePublisher = tempChartData.map(game => game.publisher);
         console.log(duplicatePublisher);
 
@@ -27,7 +27,7 @@ const SampleEvaluationChart = (props) => {
             let publisherDataObject ={
                 publisher : publisherName,
 
-                gamesSoldGlobally: tempChartData.filter(game => game.publisher == publisherName).map(game => game.globalSales).reduce((a, b) => a + b, 0)
+                gamesSoldGlobally: tempChartData.filter(game => game.publisher === publisherName).map(game => game.globalSales).reduce((a, b) => a + b, 0)
             }
             return publisherDataObject;
         })
