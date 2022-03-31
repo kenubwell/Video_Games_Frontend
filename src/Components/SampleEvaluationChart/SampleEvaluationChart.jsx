@@ -4,7 +4,7 @@ import { Chart } from "react-google-charts";
 
 const SampleEvaluationChart = (props) => {
     const [chartData, setChartData] =useState([]);
-    const [plaformData, setPlaformData] = useState([]);
+    const [platformData, setPlaformData] = useState([]);
 
     useEffect(() =>{
         let tempChartData = props.allGames.filter(function(element){
@@ -14,6 +14,10 @@ const SampleEvaluationChart = (props) => {
     });
     setChartData(tempChartData);
 }, [props.allGames])
+
+    useEffect(() =>{
+        
+    })
 
     function identifyPlatformInfo(chartData){
 
@@ -33,23 +37,24 @@ const SampleEvaluationChart = (props) => {
         setPlaformData(plaformsWithGlobalSales);
     }
 
-    function formatPlaformData(plaformData){
+    function formatPlaformData(platformData){
         const data = [
-            ["Platform", ]
+            ["Platform", "Global Sales", {role: "style"}],
+            ...platformData.map(platformDataSingle => [platformDataSingle.platform, platformDataSingle.gamesSoldGlobally, 'lightblue'])
         ]
+    return data
     }
 
+
     return (  
-        <div className='console-chart-contain'>
-        <Chart
-        chartType="Bar"
-        data={[["Publisher", "Sales"], ...chartData]}
-        width="100%"
-        height="350px"
-        options={{legend: {position: 'bottom'}}}
-        legendToggle
-        />
-    </div>
+        <div>
+            {platformData.length > 0 &&
+            <>
+                <h1>PLatform By Global Sales in Millions</h1>
+                <Chart chartType="ColumnChart" width="100%" height="400px" data={formatPlaformData(platformData)} />
+            </>
+            }
+        </div>
     );
 }
  
