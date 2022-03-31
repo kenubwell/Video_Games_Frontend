@@ -10,6 +10,7 @@ function App() {
 
   const [allGames, setAllGames] = useState([]); 
   const [game, setGame] = useState([]);
+  const [displayGames, setDisplayGames] = useState([]);
 
   useEffect(() => { //this is used to render the list of songs on App execution
     getAllGames();
@@ -18,7 +19,6 @@ function App() {
   async function getAllGames(){
     let response = await axios.get('https://localhost:7260/api/games');
     setAllGames(response.data);
-    console.log(response.data)
   }
 
   async function getGameById(game){
@@ -42,9 +42,11 @@ function App() {
 
   return (
     <div>
-      <Header/>
-      <DisplayGames displayGames = {allGames}/>
-      <SearchBar filterGames={filterGames} getAllGames={getAllGames}/>
+      <div><Header/></div>
+      <div><DisplayGames displayGames = {allGames}/></div>
+      <div>
+        <SearchBar filterGames={filterGames} getAllGames={getAllGames}/>
+      </div>
       <ConsoleChart singleGame = {game}/>
     </div>
   );

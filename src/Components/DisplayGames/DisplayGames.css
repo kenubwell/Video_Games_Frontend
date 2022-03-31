@@ -17,7 +17,7 @@
 }
 
 .library-title {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -45,8 +45,8 @@ th {
 }
 
 .header-row {
-  color: darkturquoise;
-  background-color: black;
+  color: yellow;
+  background-color: blue;
 }
 
 .header-row th {
@@ -55,7 +55,7 @@ th {
 }
 
 .display-rows {
-  background-color: whitesmoke;
+  background-color: white;
 }
 
 .display-rows td {
@@ -67,9 +67,38 @@ th {
   justify-content: center;
 }
 
-.delete-button {
-  border: 2px solid;
-  background-color: darkturquoise;
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-left: 7rem;
+}
+
+.previousBttn {
+  padding-right: 1rem;
+}
+
+.nextBttn {
+  padding-left: 1rem;
+}
+
+.paginationActive {
+  padding-right: 0.5rem;
+}
+
+.paginationPage {
+  padding-right: 10px;
   font-weight: bold;
-  border-radius: 10px;
+}
+
+.paginationPrevious {
+  font-weight: bold;
+  font-size: large;
+}
+
+.paginationNext {
+  font-weight: bold;
+  font-size: large;
 }

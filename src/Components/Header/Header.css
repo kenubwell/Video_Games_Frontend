@@ -1,5 +1,5 @@
 .nav-background {
-  background-color: yellow;
+  background-color: blue;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   display: flex;
@@ -14,14 +14,22 @@
 
 .logo-decoration {
   text-decoration: none;
-  color: black;
+  color: yellow;
+}
+
+.logo-part-two {
+  color: white;
 }
 
 .navbar-ref {
   font-weight: bold;
   font-size: 18px;
-  color: navy;
+  color: yellow;
   text-decoration: none;
+}
+
+.navbar-ref-a:hover {
+  color: white;
 }
 
 .navbar-image {
