@@ -2,3 +2,14 @@
 .home-flex-contain{
   display: flex;
 }
+
+.right-panel-back{
+  width: 1000px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.left-panel-back{
+  width: 900px;
+  margin-left: 2rem;
+}

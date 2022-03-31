@@ -19,9 +19,9 @@ const ConsoleChart = (props) => {
         <div className='console-chart-contain'>
             <Chart
             chartType="LineChart"
-            data={[["Console", "Sales"], ...chartData]}
+            data={[["Sales", "Console"], ...chartData]}
             width="100%"
-            height="350px"
+            height="325px"
             options={{legend: {position: 'bottom'}}}
             legendToggle
             />

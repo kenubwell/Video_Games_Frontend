@@ -54,11 +54,14 @@ function App() {
       <div><Header/></div>
       <div><DisplayGames allGames = {allGames}/></div>
       <div className='home-flex-contain'>
-        <div>
+        <div className='left-panel-back'>
         <div><SearchBar filterGames={filterGames}/></div>
         <div><GameTable displayGames={displayGames}/></div>
         </div>
-        <div><ConsoleChart displayGames={displayGames}/></div>
+        <div className='right-panel-back'>
+          <div><medium>Search Results: Consoles sold (global sales)</medium></div>
+          <div><ConsoleChart displayGames={displayGames}/></div>
+        </div>
       </div>
         <div><BestInvestChart allGames={allGames}/></div>
         <div><SampleEvaluationChart allGames={allGames}/></div>
