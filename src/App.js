@@ -5,6 +5,7 @@ import DisplayGames from './Components/DisplayGames/DisplayGames';
 import ConsoleChart from './Components/ConsoleChart/ConsoleChart';
 import SearchBar from './Components/SearchBar/SearchBar';
 import Header from './Components/Header/Header';
+import GameTable from './Components/GameTable/GameTable';
 
 function App() {
 
@@ -14,11 +15,17 @@ function App() {
 
   useEffect(() => { //this is used to render the list of songs on App execution
     getAllGames();
+    getDisplayGames();
   }, [])
 
   async function getAllGames(){
     let response = await axios.get('https://localhost:7260/api/games');
     setAllGames(response.data);
+  }
+  
+  async function getDisplayGames(){
+    let response = await axios.get('https://localhost:7260/api/games');
+    setDisplayGames(response.data);
   }
 
   async function getGameById(game){
@@ -29,13 +36,13 @@ function App() {
 
   const filterGames = (searchTerm) => {
     console.log(searchTerm);
-    let matchingGames = game.filter((game) => {
-      if (game.rank.toLowerCase().includes(searchTerm.toLocaleLowerCase()) || game.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) || game.platform.toLowerCase().includes(searchTerm.toLocaleLowerCase()) || game.year.toLowerCase().includes(searchTerm.toLocaleLowerCase()) || game.genre.toLowerCase().includes(searchTerm.toLocaleLowerCase()) || game.publisher.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+    let matchingGames = allGames.filter((game) => {
+      if (game.name.toLowerCase().includes(searchTerm.toLowerCase())) {
         return true
       }
       else return false
   })
-  setGame(matchingGames)
+  setDisplayGames(matchingGames)
 }
 
 
@@ -43,11 +50,15 @@ function App() {
   return (
     <div>
       <div><Header/></div>
-      <div><DisplayGames displayGames = {allGames}/></div>
-      <div>
-        <SearchBar filterGames={filterGames} getAllGames={getAllGames}/>
+      <div><DisplayGames allGames = {allGames}/></div>
+      <div className='home-flex-contain'>
+        <div>
+        <div><SearchBar filterGames={filterGames}/></div>
+        <div><GameTable displayGames={displayGames}/></div>
+        </div>
+        <div><ConsoleChart displayGames={displayGames}/></div>
       </div>
-      <ConsoleChart singleGame = {game}/>
+    
     </div>
   );
 }

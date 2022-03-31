@@ -1,10 +1,13 @@
 .nav-background {
   background-color: blue;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.2rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .logo {

@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
-import './DisplayGames.css';
+import './GameTable.css';
 import ReactPaginate from 'react-paginate';
 
 
-const DisplayGames = (props) => {
+const GameTable = (props) => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [pageNumber, setPageNumber] = useState(0);
-    const gamesPerPage = 8;
-    const games = props.allGames;
+    const gamesPerPage = 5;
+    const games = props.displayGames;
     const gamesVisited = pageNumber * gamesPerPage;
 
     const gamesDisplayed =  games.slice(gamesVisited, gamesVisited + gamesPerPage).map((game, index) => { 
         return (
-            <tr key= {index} className = 'display-rows'>
-                <td>{game.rank}</td>
+            <tr key= {index} className = 'search-results-rows'>
                 <td>{game.name}</td>
                 <td>{game.platform}</td>
-                <td>{game.year}</td>
-                <td>{game.genre}</td>
                 <td>{game.publisher}</td>
+                <td>{game.globalSales}</td>
             </tr>
         );
         });
@@ -31,21 +29,18 @@ const DisplayGames = (props) => {
     }
 
     return (  
-        <div className = 'display-container'>
-        <div className='table-title'>
-            <div className ='library-contain'>
-                <h2 className='library-title'>List of Games</h2>
-            </div>
+        <div className = 'search-results-container'>
+        <div>
+            <h4 className='search-library-title'>Search Results</h4>
         </div>
-        <table className='game-table table'>
+    
+        <table className='table'>
         <thead>
-            <tr className = 'header-row'>
-                <th>Rank</th>
+            <tr className = 'search-header-row'>
                 <th>Name</th>
                 <th>Platform</th>            
-                <th>Year</th>
-                <th>Genre</th>
                 <th>Publisher</th>
+                <th>Global Sales</th>
             </tr>
         </thead>
             <tbody>
@@ -57,18 +52,18 @@ const DisplayGames = (props) => {
                 nextLabel={"Next"}
                 pageCount={pageCount}
                 onPageChange={changePage}
-                containerClassName={"paginationBttns"}
-                previousLinkClassName={"previousBttn"}
-                nextLinkClassName={"nextBttn"}
+                containerClassName={"search-paginationBttns"}
+                previousLinkClassName={"search-previousBttn"}
+                nextLinkClassName={"search-nextBttn"}
                 disabledClassName={"paginationDisabled"}
-                activeClassName={"paginationActive"}
-                pageClassName={"paginationPage"}
-                previousClassName={"paginationPrevious"}
-                nextClassName={"paginationNext"}
+                activeClassName={"seaerch-paginationActive"}
+                pageClassName={"search-paginationPage"}
+                previousClassName={"search-paginationPrevious"}
+                nextClassName={"search-paginationNext"}
                 />
         </div>
     </div>  
     );
 }
  
-export default DisplayGames;
+export default GameTable;

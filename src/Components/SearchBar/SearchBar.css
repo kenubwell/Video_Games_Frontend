@@ -1,0 +1,19 @@
+.input-search{
+    width: 650px;
+    margin-left: 2.2rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+.search-button{
+    margin-left: 3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 10px;
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+    background-color: yellow;
+    color: blue;
+    font-weight: bold;
+}

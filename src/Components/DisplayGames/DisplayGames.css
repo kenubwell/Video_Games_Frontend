@@ -17,7 +17,7 @@
 }
 
 .library-title {
-  margin-top: 2.5rem;
+  margin-top: 6rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -38,7 +38,8 @@
   border-radius: 7px;
 }
 
-.song-table tr,
+
+.game-table tr,
 td,
 th {
   border: 1px solid;

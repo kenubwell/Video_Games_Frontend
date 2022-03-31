@@ -9,21 +9,23 @@ const ConsoleChart = (props) => {
     const [chartData, setChartData] = useState([]);
 
    useEffect(() => {
-       let tempchartData = props.singleGame.map(entry => {
+       let tempchartData = props.displayGames.map(entry => {
            return [entry.platform, entry.globalSales];
        });
        setChartData(tempchartData);
-   }, [props.singleGame])
+   }, [props.displayGames])
 
     return ( 
-        <Chart
-        chartType="LineChart"
-        data={[["Console", "Sales"], ...chartData]}
-        width="100%"
-        height="400px"
-        options={{legend: {position: 'bottom'}}}
-        legendToggle
-        />
+        <div className='console-chart-contain'>
+            <Chart
+            chartType="LineChart"
+            data={[["Console", "Sales"], ...chartData]}
+            width="100%"
+            height="350px"
+            options={{legend: {position: 'bottom'}}}
+            legendToggle
+            />
+        </div>
      );
 }
  
