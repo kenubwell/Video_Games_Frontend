@@ -4,7 +4,7 @@ import { Chart } from "react-google-charts";
 
 const SampleEvaluationChart = (props) => {
     const [chartData, setChartData] =useState([]);
-    const [platformData, setPlaformData] = useState([]);
+    const [publisherData, setPublisherData] = useState([]);
 
     useEffect(() =>{
         let tempChartData = props.allGames.filter(function(element){
@@ -12,35 +12,33 @@ const SampleEvaluationChart = (props) => {
         }).map(entry => {
         return [entry.publisher, entry.globalSales];
     });
-    setChartData(tempChartData);
+    identifyPublisherInfo(tempChartData);
 }, [props.allGames])
 
-    useEffect(() =>{
-        
-    })
 
-    function identifyPlatformInfo(chartData){
+    function identifyPublisherInfo(tempChartData){
 
-        const duplicatePlatforms = chartData.map(game => game.plaform);
+        const duplicatePublisher = tempChartData.map(game => game.publisher);
+        console.log(duplicatePublisher);
 
-        const distinctPlatforms = [...new Set(duplicatePlatforms)];
+        const distinctPublisher = [...new Set(duplicatePublisher)];
 
-        let plaformsWithGlobalSales = distinctPlatforms.map(platformName => {
-            let platformDataObject ={
-                platform : platformName,
+        let publishersWithGlobalSales = distinctPublisher.map(publisherName => {
+            let publisherDataObject ={
+                publisher : publisherName,
 
-                gamesSoldGlobally: chartData.filter(game => game.plaform == platformName).map(game => game.globalSales).reduce((a, b) => a + b, 0)
+                gamesSoldGlobally: tempChartData.filter(game => game.publisher == publisherName).map(game => game.globalSales).reduce((a, b) => a + b, 0)
             }
-            return platformDataObject;
+            return publisherDataObject;
         })
 
-        setPlaformData(plaformsWithGlobalSales);
+        setPublisherData(publishersWithGlobalSales);
     }
 
-    function formatPlaformData(platformData){
+    function formatPublisherData(publisherData){
         const data = [
-            ["Platform", "Global Sales", {role: "style"}],
-            ...platformData.map(platformDataSingle => [platformDataSingle.platform, platformDataSingle.gamesSoldGlobally, 'lightblue'])
+            ["Publisher", "Global Sales", {role: "style"}],
+            ...publisherData.map(publisherDataSingle => [publisherDataSingle.publisher, publisherDataSingle.gamesSoldGlobally, 'lightblue'])
         ]
     return data
     }
@@ -48,10 +46,10 @@ const SampleEvaluationChart = (props) => {
 
     return (  
         <div>
-            {platformData.length > 0 &&
+            {publisherData.length > 0 &&
             <>
-                <h1>PLatform By Global Sales in Millions</h1>
-                <Chart chartType="ColumnChart" width="100%" height="400px" data={formatPlaformData(platformData)} />
+                <h1>Plubisher By Global Sales in Millions</h1>
+                <Chart chartType="ColumnChart" width="100%" height="400px" data={formatPublisherData(publisherData)} />
             </>
             }
         </div>
