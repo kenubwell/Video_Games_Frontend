@@ -59,7 +59,7 @@ function App() {
         <div><GameTable displayGames={displayGames}/></div>
         </div>
         <div className='right-panel-back'>
-          <div><medium>Search Results: Consoles sold (global sales)</medium></div>
+          <div className='search-title'><medium className='search-style'>Search Results: Consoles sold (global sales)</medium></div>
           <div><ConsoleChart displayGames={displayGames}/></div>
         </div>
       </div>
