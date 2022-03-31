@@ -48,7 +48,6 @@ return (
     <div>
         {platformData.length > 0 &&
         <>
-            <h1>Platform By Global Sales in Millions</h1>
             <Chart chartType="ColumnChart" width="100%" height="400px" data={formatPlatformData(platformData)} />
         </>
         }
