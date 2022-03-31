@@ -6,6 +6,7 @@ import ConsoleChart from './Components/ConsoleChart/ConsoleChart';
 import SearchBar from './Components/SearchBar/SearchBar';
 import Header from './Components/Header/Header';
 import GameTable from './Components/GameTable/GameTable';
+import BestInvestChart from './Components/BestInvestChart/BestInvestChart';
 
 function App() {
 
@@ -58,7 +59,7 @@ function App() {
         </div>
         <div><ConsoleChart displayGames={displayGames}/></div>
       </div>
-    
+        <div><BestInvestChart allGames={allGames}/></div>
     </div>
   );
 }
