@@ -47,9 +47,9 @@ console.log(chartData)
 return (  
     <div>
         {platformData.length > 0 &&
-        <>
-            <Chart chartType="ColumnChart" width="100%" height="400px" data={formatPlatformData(platformData)} />
-        </>
+        <div className="best-chart-contain">
+            <Chart chartType="ColumnChart" width="100%" height="375px" data={formatPlatformData(platformData)} />
+        </div>
         }
     </div>
 );

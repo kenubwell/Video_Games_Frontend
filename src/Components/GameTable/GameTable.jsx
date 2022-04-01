@@ -7,7 +7,7 @@ const GameTable = (props) => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [pageNumber, setPageNumber] = useState(0);
-    const gamesPerPage = 5;
+    const gamesPerPage = 6;
     const games = props.displayGames;
     const gamesVisited = pageNumber * gamesPerPage;
 

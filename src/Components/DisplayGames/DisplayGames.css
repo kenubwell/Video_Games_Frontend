@@ -14,10 +14,12 @@
 .library-contain {
   margin-right: auto;
   padding-left: 0.3rem;
+
+
 }
 
 .library-title {
-  margin-top: 6rem;
+  margin-top: 7rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -74,7 +76,7 @@ th {
   list-style: none;
   display: flex;
   justify-content: center;
-  margin-left: 7rem;
+  margin-left: 6.8rem;
 }
 
 .previousBttn {
@@ -82,7 +84,7 @@ th {
 }
 
 .nextBttn {
-  padding-left: 1rem;
+  padding-left: 0.6rem;
 }
 
 .paginationActive {
@@ -103,3 +105,4 @@ th {
   font-weight: bold;
   font-size: large;
 }
+

@@ -45,9 +45,9 @@ const ConsoleChart = (props) => {
 return (  
     <div>
         {consoleData.length > 0 &&
-        <>
-            <Chart chartType="BarChart" width="100%" height="400px" data={formatConsoleData(consoleData)} />
-        </>
+        <div className='console-chart-contain'>
+            <Chart chartType="BarChart" width="100%" height="375px" data={formatConsoleData(consoleData)} />
+        </div>
         }
     </div>
 );

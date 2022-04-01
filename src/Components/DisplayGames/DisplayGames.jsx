@@ -34,7 +34,7 @@ const DisplayGames = (props) => {
         <div className = 'display-container'>
         <div className='table-title'>
             <div className ='library-contain'>
-                <h2 className='library-title'>List of Games</h2>
+                <div><h2 className='library-title'>List of Games</h2></div>
             </div>
         </div>
         <table className='game-table table'>

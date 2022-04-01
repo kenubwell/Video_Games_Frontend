@@ -47,10 +47,9 @@ const SampleEvaluationChart = (props) => {
     return (  
         <div>
             {publisherData.length > 0 &&
-            <>
-                <h1>Plubisher By Global Sales in Millions</h1>
-                <Chart chartType="ColumnChart" width="100%" height="400px" data={formatPublisherData(publisherData)} />
-            </>
+            <div className='eval-chart-contain'>
+                <Chart chartType="ColumnChart" width="100%" height="375px" data={formatPublisherData(publisherData)} />
+            </div>
             }
         </div>
     );
