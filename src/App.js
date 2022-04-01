@@ -8,6 +8,7 @@ import Header from './Components/Header/Header';
 import GameTable from './Components/GameTable/GameTable';
 import BestInvestChart from './Components/BestInvestChart/BestInvestChart';
 import SampleEvaluationChart from './Components/SampleEvaluationChart/SampleEvaluationChart';
+import PublisherChart from './Components/PublisherChart/PublisherChart';
 import Footer from './Components/Footer/Footer';
 
 function App() {
@@ -84,6 +85,7 @@ function App() {
             <img src ="/images/ukrainepointerleft.png" className='pointer-size-left'/>
           </div>
         </div>
+        <div><PublisherChart allGames={allGames}/></div>
         <div>
           <Footer/>
         </div>
