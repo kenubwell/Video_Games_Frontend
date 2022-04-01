@@ -51,7 +51,10 @@
   }
 
 .search-paginationActive {
-    padding-right: 0.5rem;
+  background-color: blue;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  padding-left: 7px;
   }
 
 .search-paginationPage {

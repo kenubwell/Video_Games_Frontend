@@ -56,7 +56,7 @@ const GameTable = (props) => {
                 previousLinkClassName={"search-previousBttn"}
                 nextLinkClassName={"search-nextBttn"}
                 disabledClassName={"paginationDisabled"}
-                activeClassName={"seaerch-paginationActive"}
+                activeClassName={"search-paginationActive"}
                 pageClassName={"search-paginationPage"}
                 previousClassName={"search-paginationPrevious"}
                 nextClassName={"search-paginationNext"}

@@ -8,6 +8,7 @@ import Header from './Components/Header/Header';
 import GameTable from './Components/GameTable/GameTable';
 import BestInvestChart from './Components/BestInvestChart/BestInvestChart';
 import SampleEvaluationChart from './Components/SampleEvaluationChart/SampleEvaluationChart';
+import Footer from './Components/Footer/Footer';
 
 function App() {
 
@@ -82,6 +83,9 @@ function App() {
             <p className='best-eq-answer'>Could it be the prime publisher of sports games, the data says....</p>
             <img src ="/images/ukrainepointerleft.png" className='pointer-size-left'/>
           </div>
+        </div>
+        <div>
+          <Footer/>
         </div>
     </div>
   );

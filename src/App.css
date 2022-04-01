@@ -52,7 +52,7 @@
 
 .e-question-wrap{
   max-width: 450px;
-  margin-left: 9rem;
+  margin-left: 8rem;
   padding-right: 2px;
   padding-left: 2px;
   margin-bottom: 15rem;
@@ -60,13 +60,13 @@
 .question-text{
   font-size: xx-large;
   font-weight: bold;
-  padding-top: 1.5rem;
+  padding-top: 2.5rem;
 }
 
 .e-question-text{
   font-size: xx-large;
   font-weight: bold;
-  padding-top: 0.7rem;
+  padding-top: 0.8rem;
 }
 
 
