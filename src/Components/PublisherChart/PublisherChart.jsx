@@ -7,58 +7,61 @@ import { Chart } from "react-google-charts";
 const PublisherChart = (props) => {
 
     const [chartData, setChartData] =useState([]);
-    const [consoleData, setConsoleData] = useState([]);
-    const [publisherData, serPublisherData] = useState([]);
+    const [publisherData, setPublisherData] = useState([]);
+
 
     useEffect(() =>{
         let tempChartData = props.allGames;
-        identifyConsoleInfo(tempChartData);
-        distinctPublisher(tempChartData);
+    identifyPublisherInfo(tempChartData);
+
 }, [props.allGames])
+   
+    function identifyPublisherInfo(tempChartData){
+    
+        const duplicatePublisher = tempChartData.map(game => game.publisher);
+     
 
-    function identifyConsoleInfo(tempChartData){
-        console.log(tempChartData);
-        const duplicateConsole = tempChartData.map(game => game.platform);
-        console.log(duplicateConsole);
+        const duplicatePlatform = tempChartData.map(game => game.platform);
+     
 
-        const distinctConsole = [...new Set(duplicateConsole)];
-        console.log(distinctConsole);
-        let consolesWithGlobalSales = distinctConsole.map(consoleName => {
-            let consoleDataObject ={
-                platform : consoleName,
+        const distinctPlatform = [...new Set(duplicatePlatform)];
+        const distinctPublisher = [...new Set(duplicatePublisher)];
 
-                gamesSoldGlobally: tempChartData.filter(game => game.platform === consoleName).map(game => game.globalSales).reduce((a, b) => a + b, 0)
+        const publisherPlatform = distinctPublisher.concat(distinctPlatform);
+        console.log(publisherPlatform);
+
+        let publishersWithGlobalSales = distinctPublisher.map(publisherName => {
+            let publisherDataObject ={
+                publisher : publisherName,
+
+                gamesSoldGlobally: tempChartData.filter(game => game.publisher === publisherName).map(game => game.globalSales).reduce((a, b) => a + b, 0)
             }
-            return consoleDataObject;
+            return publisherDataObject;
         })
 
-        setConsoleData(consolesWithGlobalSales);
+        setPublisherData(publishersWithGlobalSales);
+
     }
 
-    function distinctPublisher(tempChartData){
-        console.log(tempChartData);
-        const duplicateConsole = tempChartData.map(game => game.publisher);
-        console.log(duplicateConsole);
-    }
 
-    function formatConsoleData(consoleData){
+    function formatPublisherData(publisherData){
+        console.log(publisherData);
         const data = [
-            ["Console", "Global Sales", {role: "style"}],
-            ...consoleData.map(consoleDataSingle => [consoleDataSingle.platform, consoleDataSingle.gamesSoldGlobally, 'lightblue'])
+            ["Publisher", "Global Sales", {role: "style"}],...publisherData.map(publisherDataSingle => [publisherDataSingle.publisher, publisherDataSingle.gamesSoldGlobally, 'lightblue'])
         ]
     return data
     }
 
 
-return (  
-    <div>
-        {consoleData.length > 0 &&
-        <div className='console-chart-contain'>
-            <Chart chartType="BarChart" width="100%" height="375px" data={formatConsoleData(consoleData)} />
+    return (  
+        <div>
+            {publisherData.length > 0 &&
+            <div className='eval-chart-contain'>
+                <Chart chartType="PieChart" width="100%" height="375px" data={formatPublisherData(publisherData)} />
+            </div>
+            }
         </div>
-        }
-    </div>
-);
+    );
 }
  
 export default PublisherChart;
