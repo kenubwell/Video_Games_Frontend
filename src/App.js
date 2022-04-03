@@ -85,7 +85,6 @@ function App() {
             <img src ="/images/ukrainepointerleft.png" className='pointer-size-left'/>
           </div>
         </div>
-        {/* <div><PublisherChart allGames={allGames}/></div> */}
         <div>
           <Footer/>
         </div>
